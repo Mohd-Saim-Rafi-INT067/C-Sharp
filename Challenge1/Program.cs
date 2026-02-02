@@ -1,11 +1,4 @@
-﻿
-//Build a "Console RPG Battler"
-// 1. Ask user for name.
-// 2. Loop a battle where user chooses "Attack" or "Heal".
-// 3. Use Random for damage calculations.
-// 4. End loop when HP < 0.
-
-using System;
+﻿using System;
 
 class Challenge1
 {
@@ -13,18 +6,35 @@ class Challenge1
     {
         int value = Random.Shared.Next(10, 21);
         return value;
-
     }
+
+    static void NameValidation(string? name)
+    {
+        if (name == "" || name.Length < 3)
+        {
+            Console.Write("Invalid name, Please enter a valid name: ");
+            NameValidation(Console.ReadLine());
+        }
+        else
+        {
+            Console.Write($"\nWelcome {name} to the RPG Battler Game!");
+            Console.Write("\nYou start with 100 HP. Try to survive as long as you can!");
+        }
+    }
+
     static void Main(string[] args)
     {
-        Console.WriteLine("Enter Your name");
-        string playerName = Console.ReadLine();
-        int playerHP = 100;
-        bool flag = false;
+        Console.Write("Enter Your name:  ");
+        string? playerName = Console.ReadLine();
+        NameValidation(playerName);
 
-        while (flag == false && playerHP > 0)
+        int playerHP = 100;
+        bool flag = true;
+
+        while (flag  && playerHP > 0)
         {
-            Console.WriteLine("Choose an action: 1. Attack 2. Heal 3. Quit");
+            Console.ResetColor();
+            Console.Write("\nChoose an action: \n1. Attack \n2. Heal \n3. Quit\n");
             string option = Console.ReadLine();
             int damage = GetRandomValue();
             int heal = GetRandomValue();
@@ -34,24 +44,30 @@ class Challenge1
                 case "1":
                 playerHP = playerHP - damage;
                 Console.BackgroundColor = ConsoleColor.Green;
-                Console.WriteLine($"You attacked, new HP : {playerHP} , damage taken: {damage}");
+                Console.Write($"\nYou attacked the opponent, Your new HP : {playerHP} , damage taken: {damage}");
                 Console.ResetColor();
                 break;
 
                 case "2":
-                Console.BackgroundColor = ConsoleColor.Green;
                 playerHP = playerHP + heal;
-                Console.WriteLine($"You healed, new HP:  {playerHP}, healed amount: {heal}");
+                if (playerHP > 100)
+                {
+                    playerHP = 100;
+                }
+                Console.BackgroundColor = ConsoleColor.Green;
+                Console.Write($"\nYou healed, Your new HP:  {playerHP}, healed amount: {heal}");
                 Console.ResetColor();
                 break;
 
                 case "3":
-                Console.WriteLine("You wished to Quit the game. Thanks!");
-                flag = true;
+                Console.Write("\nYou wished to Quit the game. Thanks for playing!");
+                Console.ResetColor();
+                flag = false;
                 break;
 
                 default:
-                Console.WriteLine("Invalid option, Please try again");
+                Console.Write("\nInvalid option, Please try again");
+                Console.ResetColor();
                 break;
             }
             
@@ -59,13 +75,13 @@ class Challenge1
         if (playerHP > 0)
         {
             Console.BackgroundColor= ConsoleColor.Green;
-            Console.WriteLine("Game Over!");
+            Console.Write("\nGame Over! You Survived!");
             Console.ResetColor();
         }
         else
         {
             Console.BackgroundColor= ConsoleColor.Red;
-            Console.WriteLine("Game Over!");
+            Console.Write("\nGame Over! You Died!");
             Console.ResetColor();
         }
         
