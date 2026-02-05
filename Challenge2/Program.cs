@@ -3,26 +3,23 @@
 //2. Use a List<int> to store the grades dynamically(unlike fixed array)
 
 class GradeBook{
-    public List<int> grades = new List<int>();
-
-    public void AddGrade(int grade){
-        grades.Add(grade);
+    private List<int> grades = new List<int>();
+    public void AddGrades(params int[] NewGrades){
+        foreach(int grade in NewGrades){
+            grades.Add(grade);
+        }
     }
-
     public double CalculateAverage(){
+        if (grades.Count == 0) return 0; 
         double sum = 0;
-        foreach(int i in grades){
-            sum += i;
+        foreach(int grade in grades){
+            sum += grade;
         }
         return sum / grades.Count;
     }
 
     public void PrintReport(){
-        Console.BackgroundColor = ConsoleColor.Green;
-        Console.Write("\nGrades: ");
-        Console.Write(string.Join(", ", grades));
-        Console.Write($"\nAverage: {CalculateAverage()}\n");
-        Console.ResetColor();
+        Console.Write($"\nGrades: {string.Join(", ", grades)}\nAverage: {CalculateAverage()}\n");
     }
 }
 
@@ -30,23 +27,25 @@ class Program{
     static void Main(string[] args){
         GradeBook gradebook = new GradeBook();
         while (true){
-            Console.Write("\nEnter the grade (or 'q' to quit): ");
+            Console.Write("\nEnter the grade(s) (or 'q' to quit): ");
             string input = Console.ReadLine();
-            if (input.ToLower() == "q"){
+
+            if (input.Trim().ToLower() == "q"){
                 break;
             }
-            if (!int.TryParse(input, out int grade)){
-                Console.BackgroundColor = ConsoleColor.Red;
-                Console.WriteLine("Enter a valid number");
-                Console.ResetColor();  
-            }
-            if (grade > 0 ){
-                gradebook.AddGrade(grade);
-            }
-            else{
-                Console.BackgroundColor = ConsoleColor.Red;
-                Console.WriteLine("ERROR! grade cannot be negative");
-                Console.ResetColor();
+           
+            string [] grades = input.Split(' ',StringSplitOptions.RemoveEmptyEntries);
+            foreach(string _grade in grades){
+                if (!int.TryParse(_grade, out int grade)){
+                    Console.WriteLine("Invalid Input! Not a number");
+                    continue;
+                }
+
+                if (grade < 0){
+                    Console.WriteLine("Enter a number greater than 0");
+                    continue;
+                }
+                gradebook.AddGrades(grade);
             }
         }
         gradebook.PrintReport();
