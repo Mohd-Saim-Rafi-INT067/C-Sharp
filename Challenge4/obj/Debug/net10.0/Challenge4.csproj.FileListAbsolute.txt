@@ -1,0 +1,15 @@
+/Users/saimrafi/Desktop/C#/C-Sharp/Challenge4/bin/Debug/net10.0/Challenge4
+/Users/saimrafi/Desktop/C#/C-Sharp/Challenge4/bin/Debug/net10.0/Challenge4.deps.json
+/Users/saimrafi/Desktop/C#/C-Sharp/Challenge4/bin/Debug/net10.0/Challenge4.runtimeconfig.json
+/Users/saimrafi/Desktop/C#/C-Sharp/Challenge4/bin/Debug/net10.0/Challenge4.dll
+/Users/saimrafi/Desktop/C#/C-Sharp/Challenge4/bin/Debug/net10.0/Challenge4.pdb
+/Users/saimrafi/Desktop/C#/C-Sharp/Challenge4/obj/Debug/net10.0/Challenge4.GeneratedMSBuildEditorConfig.editorconfig
+/Users/saimrafi/Desktop/C#/C-Sharp/Challenge4/obj/Debug/net10.0/Challenge4.AssemblyInfoInputs.cache
+/Users/saimrafi/Desktop/C#/C-Sharp/Challenge4/obj/Debug/net10.0/Challenge4.AssemblyInfo.cs
+/Users/saimrafi/Desktop/C#/C-Sharp/Challenge4/obj/Debug/net10.0/Challenge4.csproj.CoreCompileInputs.cache
+/Users/saimrafi/Desktop/C#/C-Sharp/Challenge4/obj/Debug/net10.0/Challenge4.sourcelink.json
+/Users/saimrafi/Desktop/C#/C-Sharp/Challenge4/obj/Debug/net10.0/Challenge4.dll
+/Users/saimrafi/Desktop/C#/C-Sharp/Challenge4/obj/Debug/net10.0/refint/Challenge4.dll
+/Users/saimrafi/Desktop/C#/C-Sharp/Challenge4/obj/Debug/net10.0/Challenge4.pdb
+/Users/saimrafi/Desktop/C#/C-Sharp/Challenge4/obj/Debug/net10.0/Challenge4.genruntimeconfig.cache
+/Users/saimrafi/Desktop/C#/C-Sharp/Challenge4/obj/Debug/net10.0/ref/Challenge4.dll
